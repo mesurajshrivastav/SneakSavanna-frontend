@@ -10,8 +10,14 @@ import { Link } from "react-router-dom";
 
 const user = { _id: "hdksk", role: "admin" };
 
+
+
 const Header = () => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
+
+  function logoutHandler(){
+    setIsOpen(false);
+  }
 
   return (
     <nav className="header">
@@ -33,7 +39,7 @@ const Header = () => {
                 <Link onClick={() => setIsOpen((prev) => !prev)} to={"/admin/dashboard"}>Admin</Link>
               )}
               <Link onClick={() => setIsOpen((prev) => !prev)} to={"orders"}>Orders</Link>
-              <button>
+              <button onClick={logoutHandler}>
                 <FaSignOutAlt />
               </button>
             </div>
