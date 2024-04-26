@@ -1,16 +1,18 @@
 import { useEffect, useState } from "react";
 import { BiErrorAlt } from "react-icons/bi";
 import CartItem from "../components/cart-Item";
+import { Link } from "react-router-dom";
 
 const cartItems = [
   {
-    productId : "ksdnkalk",
-    photo : "https://media.vogue.in/wp-content/uploads/2021/10/Air-Jordans-2.jpg",
-    name : "jordan",
-    price : 3000,
-    quantity : 4,
-    stock : 10
-  }
+    productId: "ksdnkalk",
+    photo:
+      "https://media.vogue.in/wp-content/uploads/2021/10/Air-Jordans-2.jpg",
+    name: "jordan",
+    price: 3000,
+    quantity: 4,
+    stock: 10,
+  },
 ];
 const subtotal = 4000;
 const tax = Math.round(4000 * 0.18);
@@ -35,22 +37,20 @@ const Cart = () => {
   }, [couponCode]);
 
   return (
-    <>
+    <div className="cart">
       <main>
-
-    {
-      cartItems.map((i, idx)=>(
-        <CartItem key={idx} cartItem={i}/>
-      ))
-    }
-
+        {cartItems.length > 0 ? (
+          cartItems.map((i, idx) => <CartItem key={idx} cartItem={i} />)
+        ) : (
+          <h1>No items Added</h1>
+        )}
       </main>
       <aside>
         <p>Subtotal : ₹{subtotal}</p>
         <p>Shipping Charges : ₹{shippingCharges}</p>
         <p>Tax : ₹{tax}</p>
         <p>
-          Discount : <em> -₹{discount}</em>
+          Discount : <em className="red"> -₹{discount}</em>
         </p>
         <p>
           <b>Total : ₹{total}</b>
@@ -72,8 +72,10 @@ const Cart = () => {
               <BiErrorAlt /> Invalid Coupon
             </span>
           ))}
+
+        {cartItems.length > 0 && <Link to="/shipping">Checkout</Link>}
       </aside>
-    </>
+    </div>
   );
 };
 
