@@ -19,7 +19,7 @@ const Home = () => {
         <ProductCard
           productId="ss1234"
           name="nike-jordan"
-          price={353333}
+          price={3533}
           stock={10}
           handler={addToCartHandler}
           photo="https://media.vogue.in/wp-content/uploads/2021/10/Air-Jordans-2.jpg"

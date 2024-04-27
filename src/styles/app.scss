@@ -38,6 +38,8 @@ $color3: rgb(0, 104, 136);
 @import "home";
 @import "cart.scss";
 @import "shipping.scss";
+@import "login.scss";
+@import "search.scss";
 
 @import "admin-styles/_dashboard";
 @import "admin-styles/_products";
@@ -80,6 +82,14 @@ $color3: rgb(0, 104, 136);
     }
   }
 }
+
+.heading {
+  @include heading;
+  margin: 1rem 0;
+  text-align: center;
+}
+
+
 
 .admin-container {
   @include grid(1fr 4fr, 2rem);

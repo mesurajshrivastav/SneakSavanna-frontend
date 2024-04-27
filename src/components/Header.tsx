@@ -8,7 +8,7 @@ import {
 } from "react-icons/fa";
 import { Link } from "react-router-dom";
 
-const user = { _id: "hdksk", role: "admin" };
+const user = { _id: "", role: "" };
 
 
 
@@ -46,7 +46,9 @@ const Header = () => {
           </dialog>
         </>
       ) : (
-        <FaSignInAlt />
+
+        <Link to="/login"><FaSignInAlt /></Link>
+        
       )}
     </nav>
   );
